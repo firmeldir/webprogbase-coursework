@@ -1,0 +1,55 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <main>
+
+        <div class="div-center">
+
+            <h5>Please fill in these fields to create a teacher profile</h5>
+
+            <form action='/users/teacher/new' method='POST'>
+
+                <div class="form-group"> 
+                <label>Headline:</label>
+                <input type="text" name='headline' class='form-control' value='' required maxlength="60"/>
+                </div> 
+
+                <div class="form-group">
+                <label>Linkedin:</label>
+                <input type="text" name='linkedin' class='form-control' value='' required />
+                </div>
+
+                <div class="form-group">
+                <label>Facebook:</label>
+                <input type="text" name='facebook' class='form-control' value='' required />
+                </div>
+
+                <div class="form-group">
+                <label>Reddit:</label>
+                <input type="text" name='reddit' class='form-control' value='' required />
+                </div>
+
+                <div class="form-group">
+                <label>Twitter:</label>
+                <input type="text" name='twitter' class='form-control' value='' required />
+                </div>
+
+
+                <button class="btn btn-dark mt-2" id="submit" name="submit" type='submit'>🤑 Become a teacher 🤑</button>
+
+            </form>
+            
+        </div>
+
+    </main>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

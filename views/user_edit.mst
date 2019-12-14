@@ -1,0 +1,67 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <main>
+
+        <div class="div-center">
+
+            {{#auth.aurzed}}
+
+            <h5>Edit profile</h5>
+
+            <form action='/users/edit' method='POST'>
+
+                <div class="form-group mt-4">
+                    <label>Full Name:</label>
+                    <input type='text' id="fullname" name='fullname' class='form-control' value='{{auth.aurzed.fullname}}' required minlength="6" maxlength="30"/>
+                </div> 
+
+                {{#teacher}}
+
+                    <div class="form-group"> 
+                    <label>Headline:</label>
+                    <input name='headline' class='form-control' value='{{headline}}' required maxlength="60"/>
+                    </div> 
+
+                    <div class="form-group">
+                    <label>Linkedin:</label>
+                    <input  id="linkedin"  name='linkedin' class='form-control' value='{{linkedin}}' required />
+                    </div>
+
+                    <div class="form-group">
+                    <label>Facebook:</label>
+                    <input  id="facebook"  name='facebook' class='form-control' value='{{facebook}}' required />
+                    </div>
+
+                    <div class="form-group">
+                    <label>Reddit:</label>
+                    <input  id="reddit"  name='reddit' class='form-control' value='{{reddit}}' required />
+                    </div>
+
+                    <div class="form-group">
+                    <label>Twitter:</label>
+                    <input  id="twitter"  name='twitter' class='form-control' value='{{twitter}}' required />
+                    </div>
+
+                {{/teacher}}
+
+                <button class="btn btn-dark mt-2" id="submit" name="submit" type='submit'>☝ Done</button>
+
+            </form>
+
+            {{/auth.aurzed}}   
+            
+        </div>
+
+    </main>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <main>
+
+    <div class="div-center">
+
+      {{#task}}
+
+      <div class="card">
+          <div class="card-body">
+              <h1>{{name}}</h1>
+              <p><b>Conditions</b> : {{taskText}}</p>
+              <p><b>P.S.</b> : {{additionText}}</p>
+              <p><b>Maximum mark : {{maxScore}} </b></p>
+              {{#taskFile}}
+                <button class="btn btn-outline-primary waves-effect"><a href="{{taskFile}}">Task file</a></button>
+              {{/taskFile}}
+          </div>
+      </div>
+
+      {{#auth.admin}}
+        <button type="button" class="btn btn-primary btn-lg mt-4" data-toggle="modal" data-target="#myModal">
+          Delete task👳
+        </button>
+      {{/auth.admin}}
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+              <h4 class="modal-title mx-4 my-4" id="myModalLabel">Are u sure?</h4>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+
+                <form method="POST" action="/tasks/{{id}}" enctype="multipart/form-data">               
+                <input class="btn btn-danger mt-4" type="submit" value="Accept">
+                </form>
+              </div>
+          
+            </div>
+        </div>
+      </div>
+
+      {{/task}}
+
+    </div>
+
+    </main>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

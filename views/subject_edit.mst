@@ -1,0 +1,48 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <main>
+
+        <div class="div-center">
+
+            {{#subject}}
+
+            <h5>Edit subject</h5>
+
+            <form action='/subjects/edit/{{_id}}' method='POST'>
+
+                <div class="form-group mt-4">
+                <label>Subject name</label> 
+                <br><input id="name" class="form-control" type="text" name="name" value='{{name}}' required minlength="6" maxlength="30"><br>
+                </div>
+
+                <div class="form-group">
+                <label>Description</label> 
+                <textarea  class="form-control" name="description" rows="5" cols="60" required minlength="6" maxlength="90">{{description}}</textarea>
+                </div>   
+        
+                <div class="form-group">
+                <label>Price</label> 
+                <input id="price" value='{{price}}' type="number" name="price" required>
+                </div>  
+
+                <button class="btn btn-dark mt-2" id="submit" name="submit" type='submit'>☝ Done</button>
+
+            </form>
+
+            {{/subject}}   
+            
+        </div>
+
+    </main>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

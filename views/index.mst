@@ -1,0 +1,36 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+    
+    {{>partials/header}}
+
+    <div class="div-center">
+
+    {{user}}
+
+    <div class="card">
+        <div class="card-body">
+            <b>We 😘 smart people</b>
+            
+            <div>
+               <b> + </b> We have created a place where you can train on different tasks and create them yourself for everyone
+            </div>
+
+            <div>
+               <b> + </b> Become a teacher and teach subjects for the price of subscribing to you
+            </div>
+           
+        </div>
+
+    </div>
+
+    </div>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>
+

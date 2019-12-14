@@ -1,0 +1,305 @@
+<textarea rows="14" cols="20">
+█▀▀▄░░░░░░░░░░░▄▀▀█
+░█░░░▀▄░▄▄▄▄▄░▄▀░░░█
+░░▀▄░░░▀░░░░░▀░░░▄▀
+░░░░▌░▄▄░░░▄▄░▐▀▀
+░░░▐░░█▄░░░▄█░░▌▄▄▀▀▀▀█ 
+░░░▌▄▄▀▀░▄░▀▀▄▄▐░░░░░░█
+▄▀▀▐▀▀░▄▄▄▄▄░▀▀▌▄▄▄░░░█
+█░░░▀▄░█░░░█░▄▀░░░░█▀▀▀
+░▀▄░░▀░░▀▀▀░░▀░░░▄█▀
+░░░█░░░░░░░░░░░▄▀▄░▀▄
+░░░█░░░░░░░░░▄▀█░░█░░█
+░░░█░░░░░░░░░░░█▄█░░▄▀
+░░░█░░░░░░░░░░░████▀
+░░░▀▄▄▀▀▄▄▀▀▄▄▄█▀
+</textarea>
+
+
+<h1><b>Auth</b> : </h1>
+<p><b>->         Basic Auth</b></p>
+<textarea rows="4" cols="50">
+admin       ->
+        /users
+
+auth users  ->
+        /tasks
+        /subjects
+
+</textarea>
+
+
+
+<h1><b>Users</b> : /api/v1/users</h1>
+
+<p><b>->         GET</b></p>
+<p>Params: /users?limit=1&searchQuery=Some query&page=2</p>
+<p>Result:</p>
+<textarea rows="10" cols="100">
+[
+    [
+        {
+            "role": 0,
+            "taskList": [
+                "5db9f65f58d8f0ad4076572e",
+                "5db9f6d758d8f0ad40765765"
+            ],
+            "isDisabled": false,
+            "_id": "5dbaa7d058d8f0ad40765b3d",
+            "login": "Schopenhauer",
+            "fullname": "Arthur Schopenhauer",
+            "registeredAt": "2015-04-19T10:06:19.000Z",
+            "avaUrl": "https://cs10.pikabu.ru/post_img/big/2018/01/11/9/1515680415139349103.jpg"
+        }
+    ]
+]
+</textarea>
+
+
+<p><b>->         GET</b></p>
+<p>Params: /api/v1/users/(id)</p>
+<p>Result:</p>
+<textarea rows="10" cols="100">
+{
+    "message": {
+        "role": 0,
+        "taskList": [
+            "5db9f65f58d8f0ad4076572e",
+            "5db9f6d758d8f0ad40765765"
+        ],
+        "isDisabled": false,
+        "_id": "5dbaa7d058d8f0ad40765b3d",
+        "login": "Schopenhauer",
+        "fullname": "Arthur Schopenhauer",
+        "registeredAt": "2015-04-19T10:06:19.000Z",
+        "avaUrl": "https://cs10.pikabu.ru/post_img/big/2018/01/11/9/1515680415139349103.jpg"
+    }
+}
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'User not found!' }
+</textarea>
+
+
+<p><b>->         POST</b></p>
+<p>Params: login, fullname, pass</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'User created!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Login already exists' }
+</textarea>
+
+
+<p><b>->         PUT</b></p>
+<p>Params: fullname</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'User updated!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'User not found!' }
+</textarea>
+
+
+<p><b>->         DELETE</b></p>
+<p>Params: /api/v1/users/(id)</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Successfully deleted!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'User not found!' }
+</textarea>
+
+<br>
+
+<h1><b>Tasks</b> : /api/v1/tasks</h1>
+
+<p><b>->         GET</b></p>
+<p>Params: /tasks?limit=1&searchQuery=Some query&page=2</p>
+<p>Result:</p>
+<textarea rows="10" cols="100">
+[
+    [
+        {
+            "maxScore": 10,
+            "_id": "5dbd9e06db05d30017585711",
+            "name": "Kirchhoff task",
+            "taskText": "Some Description",
+            "additionText": "Some Addition",
+            "pushedAt": "2019-11-02T15:17:26.712Z",
+            "__v": 0
+        },
+        {
+            "maxScore": 4,
+            "_id": "5dbd9e2cdb05d30017585712",
+            "name": "Television",
+            "taskText": "Find television?",
+            "additionText": "Some ",
+            "subject": "5dbd9dd5db05d30017585710",
+            "pushedAt": "2019-11-02T15:18:04.959Z",
+            "__v": 0
+        }
+    ]
+]
+</textarea>
+
+
+<p><b>->         GET</b></p>
+<p>Params: /api/v1/tasks/(id)</p>
+<p>Result:</p>
+<textarea rows="10" cols="100">
+{
+    "message": {
+        "maxScore": 10,
+        "_id": "5dbd9e06db05d30017585711",
+        "name": "Kirchhoff task",
+        "taskText": "Some Description",
+        "additionText": "Some Addition",
+        "pushedAt": "2019-11-02T15:17:26.712Z",
+        "__v": 0
+    }
+}
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Task not found!' }
+</textarea>
+
+
+<p><b>->         POST</b></p>
+<p>Params: title, description, addition, maxScore</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Task created!' }
+</textarea>
+
+
+<p><b>->         PUT</b></p>
+<p>Params: title, description, addition, maxScore</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Task updated!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Task not found!' }
+</textarea>
+
+
+<p><b>->         DELETE</b></p>
+<p>Params: /api/v1/tasks/(id)</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Successfully deleted!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Task not found!' }
+</textarea>
+
+<br>
+
+<h1><b>Subjects</b> : /api/v1/subjects</h1>
+
+<p><b>->         GET</b></p>
+<p>Params: /subjects?limit=1&searchQuery=Some query&page=2</p>
+<p>Result:</p>
+<textarea rows="10" cols="100">
+[
+    [
+        {
+            "price": 0,
+            "lecturers": [],
+            "taskList": [
+                "5dbd9e2cdb05d30017585712",
+                "5dbdb326ab584721545d3a69"
+            ],
+            "lectures": [],
+            "_id": "5dbd9dd5db05d30017585710",
+            "name": "Math",
+            "description": "Math is math. Or not?..",
+            "__v": 0
+        },
+        {
+            "price": 74,
+            "lecturers": [],
+            "taskList": [
+                "5dbdb3eb2d597748fcac854f"
+            ],
+            "lectures": [],
+            "_id": "5dbdb3d12d597748fcac854e",
+            "name": "Saentologi",
+            "description": "My precious",
+            "__v": 0
+        }
+    ]
+]
+</textarea>
+
+
+<p><b>->         GET</b></p>
+<p>Params: /api/v1/subjects/(id)</p>
+<p>Result:</p>
+<textarea rows="10" cols="100">
+{
+    "message": {
+        "price": 0,
+        "lecturers": [],
+        "taskList": [
+            "5dbd9e2cdb05d30017585712",
+            "5dbdb326ab584721545d3a69"
+        ],
+        "lectures": [],
+        "_id": "5dbd9dd5db05d30017585710",
+        "name": "Math",
+        "description": "Math is math. Or not?..",
+        "__v": 0
+    }
+}
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Subject not found!' }
+</textarea>
+
+
+<p><b>->         POST</b></p>
+<p>Params: name, description, price</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Subject created!' }
+</textarea>
+
+
+<p><b>->         PUT</b></p>
+<p>Params: name, description, price</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Subject updated!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Subject not found!' }
+</textarea>
+
+
+<p><b>->         DELETE</b></p>
+<p>Params: /api/v1/tasks/(id)</p>
+<p>Result:</p>
+<textarea rows="1" cols="100">
+{ message: 'Successfully deleted!' }
+</textarea>
+<p>Errors:</p>
+<textarea rows="1" cols="50">
+{ message: 'Subject not found!' }
+</textarea>
+
+
+  

@@ -1,0 +1,32 @@
+    <div>
+        <form class="form-inline" name="tasksForm" id="tasksForm">
+            <input id="search" type="text" name="searchQuery" value="{{searchQuery}}" class="form-control mr-3">
+            <a class="btn btn-outline-dark" onclick="searchPage()" id="submit" type="submit" >Search</a>
+            <a class="btn btn-dark mx-2 form-inline" href="/tasks/new">New 👏🏻</a>
+        </form>
+    </div>
+
+    <div>
+        <table id="taskTable" class="table table-hover shadow-lg p-3 bg-white rounded" align="center" border="1" style="margin-top: 80px">
+            {{#tasks}}
+            <tr>
+                <th><a href="tasks/{{_id}}">{{name}}</a></th>
+            </tr>
+            {{/tasks}}
+        </table>
+    </div>
+
+    {{#emptySearchText}}
+        <div class="alert alert-danger" role="alert">
+            {{emptySearchText}}
+        </div>
+    {{/emptySearchText}}  
+    {{^emptySearchText}}
+        <div class="div-align-center">
+            <a href="#" onclick="previousPage()" id="previousButton">⬅⬅⬅</a>
+            <span id="current">{{current}}</span> / <span id="maximum">{{maximum}}</span> 🤓
+            <a href="#" onclick="nextPage()" id="nextButton">➡➡➡</a>
+        </div> 
+    {{/emptySearchText}}
+
+    

@@ -1,0 +1,9 @@
+<html lang="en">
+        
+{{>partials/head}}
+
+<body>
+    <p>Error</p>
+</body>
+
+</html>

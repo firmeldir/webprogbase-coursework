@@ -1,0 +1,95 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <div class="div-center">
+
+        <main>
+
+            {{#subject}}
+
+            <div class="card">
+                <div class="card-body">
+                    <h2><b>{{name}}</b></h2>
+                    <p>{{description}}</p>
+                    <p><b>Price</b> : ${{price}}</p>
+                    
+                    {{#lecturers}}
+                    <p><b>Lecturers :</b></p>
+                    <table class="table table-hover" align="center" border="1">
+
+                        {{#lecturers}}
+                        <tr>
+                            <td><a href="/users/{{_id}}">{{fullname}}</a></td>
+                        </tr>
+                        {{/lecturers}}
+
+                    </table>
+                    {{/lecturers}}
+
+                </div>
+            </div>
+            
+            {{#isLecturer}}
+            <div>
+                <a class="btn btn-dark mt-4" href="/tasks/new/{{id}}">👁 New task 👁</a>
+                <a class="btn btn-outline-primary mt-4" role="button" href="/subjects/edit/{{_id}}"> Edit subject</a>
+            </div>
+             {{/isLecturer}}
+            
+        
+            {{/subject}}
+
+            <div>
+                <table class="table table-hover shadow-lg p-3 bg-white rounded" align="center" border="1" style="margin-top: 20px">
+                    
+                    {{#tasks}}
+                    <tr>
+                        <th><a href="/tasks/{{id}}">"{{name}}"</a></th>
+                    </tr>
+                    {{/tasks}}
+                    
+                </table>
+            </div>
+
+            {{#subject}}
+
+            {{#isLecturer}}
+            <button type="button" class="btn btn-primary btn-lg my-10" data-toggle="modal" data-target="#myModal" style="margin-top: 50px">
+                Delete subject👎
+            </button>
+             {{/isLecturer}}
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                    <h4 class="modal-title mx-4 my-4" id="myModalLabel">Are u sure?</h4>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+
+                        <form method="POST" action="/subjects/{{id}}" enctype="multipart/form-data">
+                            <input class="btn btn-danger mt-4" type="submit" value="Accept">
+                        </form>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+
+            {{/subject}}
+
+        </main>
+
+    </div>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

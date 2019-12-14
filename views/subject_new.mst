@@ -1,0 +1,42 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <div class="div-center">
+
+    <h1><b>Your own subject</b><h1>
+
+    <h5>Describe your own subject</h5>
+
+    <form method="POST" action="/subjects/new">
+
+        <div class="form-group mt-4">
+        <label>Subject name</label> 
+        <br><input id="title" class="form-control" type="text" name="title" value='' required minlength="6" maxlength="30"><br>
+        </div>
+
+        <div class="form-group">
+        <label>Description</label> 
+        <textarea  class="form-control" name="description" rows="5" cols="60" value='' required minlength="6" maxlength="90"></textarea>
+        </div>   
+ 
+        <div class="form-group">
+        <label>Price</label> 
+        <input id="price" type="number" name="price" required  min="0">
+        </div>  
+
+        <input class="btn btn-dark mt-4" type="submit" value="Post">
+        
+    </form>  
+
+    </div>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

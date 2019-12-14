@@ -1,0 +1,71 @@
+<header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Motivation</h4>
+              <p class="text-muted">The most intelligent men, like the strongest, find their happiness where others would find only disaster: in the labyrinth, in being hard with themselves and with others, in effort; their delight is self-mastery; in them asceticism becomes second nature, a necessity, as instinct. He that seeketh findeth!</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="https://twitter.com/VladuelV" class="text-white">Read me on Twitter</a></li>
+                <li><a href="https://www.instagram.com/ro_lurece/" class="text-white">Like on Instagram</a></li>
+                <li><a href="https://github.com/firmeldir" class="text-white">Follow on Github</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+    <nav class="site-header sticky-top">
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <img width="100" height="100" viewBox="0 0 100 100" src="/images/logo2.svg" alt="site_logo">
+            <h2  font-size="120pt">Valinor</h2>
+          </a>
+
+                {{#auth.admin}}
+                    <a class="py-2 d-none d-md-inline-block mx-24" href="/users"><h4>Users</h4></a>
+                {{/auth.admin}}
+
+                {{#auth.aurzed}}
+                <a class="py-2 d-none d-md-inline-block mx-24" href="/tasks"><h4>Tasks space</h4></a>
+                <a class="py-2 d-none d-md-inline-block mx-24" href="/subjects"><h4>Subjects</h4></a>
+                {{/auth.aurzed}}
+                <a class="py-2 d-none d-md-inline-block mx-24" href="/about"><h4>About</h4></a>
+       
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        </div>
+
+        <div class="d-inline p-2 bg-dark text-white">
+          
+          {{#auth.aurzed}}
+            <a class="btn btn-outline-light" role="button" href="/users/{{auth.aurzed.id}}">Profile</a>
+            <a class="btn btn-outline-light mx-2" role="button" href="/auth/logout">Logout, {{auth.aurzed.login}}</a>    
+          {{/auth.aurzed}}
+          {{^auth.aurzed}}
+            <a class="btn btn-outline-light" role="button" href="/auth/register">Register</a>
+            <a class="btn btn-outline-light mx-2" role="button" href="/auth/login"> Login</a>    
+          {{/auth.aurzed}}
+          
+        </div>
+
+      </div>
+    </nav>
+
+          
+
+    
+
+
+</header>
+
+

@@ -1,0 +1,34 @@
+<html lang="en" class="html-signin">
+
+{{>partials/head}}
+
+<body class="body-signin">
+
+    <main>
+
+        <form action='/auth/login' method='POST' class="form-signin">
+            <img class="mb-4" src="/images/logo.png" alt="" width="120" height="120">
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+            <label for="inputEmail" class="sr-only">Login</label>
+            <input type='text' id="login" name='login' class='form-control' value='' required minlength="6" maxlength="30" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+            
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type='password' id="password" name='password' class='form-control' value='' required minlength="6" maxlength="30" class="form-control" placeholder="Password">
+                        
+            {{#error}}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {{/error}}
+
+            <button type='submit' class="btn btn-dark  btn-block" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+        </form>
+                
+    </main>
+
+</body>
+
+</html>

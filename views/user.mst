@@ -1,0 +1,109 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <main>
+
+        <div class="div-center">
+
+            {{#user}}
+
+            {{#auth.admin}}
+                {{#isAdmin}}
+                <div>
+                    <a class="btn btn-primary btn btn-dark mt-2 justify-content-center" href="/users/admin/{{_id}}">Set status as admin🎭</a>
+                </div>
+                {{/isAdmin}}
+                {{^isAdmin}}
+                <div>
+                    <a class="btn btn-primary btn btn-dark mt-2 justify-content-center" href="/users/admin/{{_id}}">Disable admin status🎭</a>
+                </div>
+                {{/isAdmin}}
+                
+            {{/auth.admin}}
+
+            {{#avaUrl}}
+            <img src="{{avaUrl}}" height="400px" width="400px" class="img-thumbnail mt-4 mx-auto d-block" />
+            {{/avaUrl}}
+
+            <div class="card mt-3">
+                    
+                <div class="card-body">
+                    <h1>{{fullname}}</h1>
+
+                    <h4>{{teacher.headline}}</h4>
+
+                    <p class="info_text">({{login}}) {{registeredAt}}</p>
+                </div>
+
+                {{#isEditEnabled}}
+                    <a class="btn btn-outline-primary  my-8" role="button" href="/users/edit"> Edit profile</a>   
+                {{/isEditEnabled}}
+
+                {{^user.teacherData}}
+                    
+                {{/user.teacherData}} 
+
+                {{#teacher}}
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-auto">
+                            <a href="{{facebook}}" class="fa fa-facebook"></a>
+                            <a href="{{linkedin}}" class="fa fa-linkedin"></a>
+                            <a href="{{twitter}}" class="fa fa-twitter"></a>
+                            <a href="{{reddit}}" class="fa fa-reddit"></a>
+                        </div>
+                    </div>
+                </div>
+
+                {{/teacher}}
+                {{^teacher}}
+                    {{#isEditEnabled}}
+                        <a class="btn btn-outline-dark my-8" role="button" href="/users/teacher/new"> Become teacher</a>
+                    {{/isEditEnabled}}
+                {{/teacher}}
+
+            </div>
+
+
+            <div class="card mt-3" style="margin-bottom: 80px">
+                
+                <div class="card-body mb-10">
+
+                    <p><b>Subjects that I teach :</b></p>
+
+                    <table class="table table-hover " align="center" border="1" >
+                        
+                        {{#subjects}}
+                        <tr>
+                            
+                            <td><a href="/subjects/{{id}}">{{name}}</a></td>
+                            
+                            <td>{{lectures.length}} lectures</td>
+
+                            <td>{{price}} $ only</td>
+                            
+                        </tr>
+                        {{/subjects}}
+
+                    </table>
+                </div>
+
+            </div>
+
+            {{/user}}   
+
+        </div>
+
+    </main>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<html lang="en">
+
+{{>partials/head}}
+
+<body>
+
+    {{>partials/header}}
+
+    <div class="div-center">
+
+        {{#isEnableToCreateNew}}
+        <p>🎓 Want to be a tough guy and teach what you know how to do? 
+                <a href="/subjects/new">
+                    Build your own subject only for $200!</a>
+                    <a href="https://hostelpay.kpi.ua/Pay.Invoices(EYstNuRo9hgKCWasLmXL6u3oK5LRCvbw40itSQ1.AEbsi0WLzMt0NWSWPxAVw7Lvy95gi8Gzh)">🧙🏻</a><p> 
+        {{/isEnableToCreateNew}}
+        {{^isEnableToCreateNew}}
+        <p>🎓 Become teacher to create ur own subject! 
+                <a href="/users/{{auth.aurzed.id}}">
+                    Build your own subject only for $200!</a>
+                    <a href="https://hostelpay.kpi.ua/Pay.Invoices(EYstNuRo9hgKCWasLmXL6u3oK5LRCvbw40itSQ1.AEbsi0WLzMt0NWSWPxAVw7Lvy95gi8Gzh)">🧙🏻</a><p> 
+        {{/isEnableToCreateNew}}
+
+        
+
+        <div>
+            <table class="table table-hover shadow-lg p-3 mb-5 bg-white rounded" align="center" border="1" style="margin-top: 80px">
+                
+                {{#subjects}}
+                <tr>
+                    
+                    <td><a href="subjects/{{id}}">{{name}}</a></td>
+                    
+                    <td>{{lectures.length}} lectures</td>
+
+                    <td>{{price}} $ only</td>
+                    
+                </tr>
+                {{/subjects}}
+
+            </table>
+        </div>
+
+    </div>
+
+    {{>partials/footer}}
+
+</body>
+
+</html>
