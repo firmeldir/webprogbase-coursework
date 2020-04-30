@@ -19,7 +19,7 @@
     "hbs": "~4.0.4",
     "http-errors": "^1.6.3",
     "jade": "^1.11.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mdbootstrap": "^4.10.0",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.7",
